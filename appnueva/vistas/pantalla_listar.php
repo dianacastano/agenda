@@ -1,61 +1,71 @@
+<?php
+require_once __DIR__ . '/../config.php';
+require_once MODEL_PATH . 'contactos_modelo.php';
+?>
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Listado de Contactos</title>
+
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        .container {
-            margin-top: 50px;
-        }
-        .table {
-            background-color: rgba(255, 255, 255, 0.8);
-        }
-        th, td {
-            text-align: center;
-        }
     </style>
 </head>
+
 <body>
-    <div class="container">
-        <h2 class="text-center" style="background-color: rgba(0, 0, 0, 0.5); color: white;">Listado de Contactos</h2>
-        <table class="table table-striped text-center">
+    <div class="container mt-5">
+        <h2 class="text-center" style="background-color: blanchedalmond;">Listado de Contactos</h2>
+        <table class="table table-striped table-light text-center">
             <thead>
                 <tr>
                     <th>ID</th>
                     <th>Nombre</th>
                     <th>Apellidos</th>
-                    <th>Teléfono</th>
+                    <th>Telefono</th>
                     <th>Email</th>
-                    <th>Acciones</th>
+                    <th>Instagram</th>
+                    <th>Tiktok</th>
+                    <th>Domicilio</th>
+                    <th>Poblacion</th>
+                    <th>Provincia</th>
+                    <th>Pais</th>
                 </tr>
             </thead>
             <tbody>
                 <?php
-                $contactos = listar_contactos();
+                $contactos = obtener_contactos();
                 foreach ($contactos as $contacto) {
                     echo "<tr>";
                     echo "<td>" . htmlspecialchars($contacto['id_contacto']) . "</td>";
                     echo "<td>" . htmlspecialchars($contacto['nombre']) . "</td>";
                     echo "<td>" . htmlspecialchars($contacto['apellidos']) . "</td>";
                     echo "<td>" . htmlspecialchars($contacto['telefono']) . "</td>";
-                    echo "<td>" . htmlspecialchars($contacto['mail']) . "</td>";
-                    echo "<td>";
-                    echo "<a class='btn btn-success' href='../controlador/contactos_controlador.php?id=" . urlencode($contacto['id_contacto']) . "'><i class='fas fa-sync-alt'></i> Actualizar</a>";
-                    echo "<a class='btn btn-danger ml-1' href='../controlador/contactos_controlador.php?id=" . urlencode($contacto['id_contacto']) . "'><i class='fas fa-trash'></i> Eliminar</a>";
-                    echo "</td>";
+                    echo "<td>" . htmlspecialchars($contacto['email']) . "</td>";
+                    echo "<td>" . htmlspecialchars($contacto['instagram']) . "</td>";
+                    echo "<td>" . htmlspecialchars($contacto['tiktok']) . "</td>";
+                    echo "<td>" . htmlspecialchars($contacto['domicilio']) . "</td>";
+                    echo "<td>" . htmlspecialchars($contacto['poblacion']) . "</td>";
+                    echo "<td>" . htmlspecialchars($contacto['provincia']) . "</td>";
+                    echo "<td>" . htmlspecialchars($contacto['pais']) . "</td>";
                     echo "</tr>";
                 }
                 ?>
             </tbody>
         </table>
-        <div class="col text-right">
+        <div class="text-right">
             <a href="../index.php" class="btn btn-primary">
-                <i class="fas fa-home"></i> Inicio
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-backspace" viewBox="0 0 16 16">
+                    <path d="M5.83 5.146a.5.5 0 0 0 0 .708L7.975 8l-2.147 2.146a.5.5 0 0 0 .707.708l2.147-2.147 2.146 2.147a.5.5 0 0 0 .707-.708L9.39 8l2.146-2.146a.5.5 0 0 0-.707-.708L8.683 7.293 6.536 5.146a.5.5 0 0 0-.707 0z" />
+                    <path d="M13.683 1a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-7.08a2 2 0 0 1-1.519-.698L.241 8.65a1 1 0 0 1 0-1.302L5.084 1.7A2 2 0 0 1 6.603 1zm-7.08 1a1 1 0 0 0-.76.35L1 8l4.844 5.65a1 1 0 0 0 .759.35h7.08a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1z" />
+                </svg> Volver al Menú Principal
             </a>
         </div>
     </div>
-
 </body>
+
 </html>
 
 
