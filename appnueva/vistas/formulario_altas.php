@@ -7,6 +7,41 @@
     <title>Registro de Usuarios</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
+        body {
+            background-image: url('https://png.pngtree.com/thumb_back/fh260/background/20230408/pngtree-rainbow-curves-abstract-colorful-background-image_2164067.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh;
+            margin: 0;
+        }
+        
+        .card {
+            background-color: rgba(0, 0, 0, 0.7);
+            border-radius: 10px;
+            color: white;
+        }
+        
+        h2 {
+            background-color: transparent;
+            color: white;
+        }
+        
+        .form-control {
+            background-color: rgba(255, 255, 255, 0.7);
+            border: none;
+            color: black;
+        }
+
+        .form-control:focus {
+            background-color: rgba(255, 255, 255, 1);
+            color: black;
+        }
+
+        .btn-block {
+            background-color: #28a745;
+            border: none;
+        }
     </style>
 </head>
 
@@ -46,6 +81,11 @@
                     
                     <label for="pais">País:</label>
                     <input type="text" id="pais" name="pais" class="form-control" required>
+                    
+                    <div class="form-group form-check mt-3">
+                        <input type="checkbox" class="form-check-input" id="activo" name="activo">
+                        <label class="form-check-label" for="activo">Activo</label>
+                    </div>
                 </div>
                 <button type="submit" class="btn btn-success btn-block">Registrar</button>
             </form>
@@ -54,5 +94,7 @@
 </body>
 
 </html>
+
+
 
 
